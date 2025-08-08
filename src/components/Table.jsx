@@ -1,11 +1,16 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import '../css/CandidatesTable.css';
 import { apiClient } from '../utils/FetchNodeService';
 import { toast } from 'react-toastify';
-import { Icon } from 'lucide-react';
 import { FaUser } from 'react-icons/fa';
 
-export default function CandidatesTable({ activeItem, isModalOpen, setIsModalOpen, setSelectedEmployeeData }) {
+export default function CandidatesTable({ activeItem, isModalOpen, setIsModalOpen, setSelectedEmployeeData, selectedStatus,
+    setSelectedStatus,
+    selectedPosition,
+    setSelectedPosition,
+    searchQuery,
+    setSearchQuery,
+}) {
     const [openMenuIndex, setOpenMenuIndex] = useState(null);
     const [candidates, setCandidates] = useState([]);
     const [selectedCandidates, setSelectedCandidates] = useState([]);
@@ -41,16 +46,35 @@ export default function CandidatesTable({ activeItem, isModalOpen, setIsModalOpe
             setIsLoading(false);
         }
     };
-
     useEffect(() => {
         if (activeItem === 'Candidates') {
-            fetchCandidates();
+            if (selectedPosition === 'Position' || selectedStatus === "Status" || searchQuery.trim() === '') {
+                fetchCandidates();
+            } else {
+                const fetchFilteredCandidates = async () => {
+                    setIsLoading(true);
+                    try {
+                        const res = await apiClient('GET', `/candidate?position=${selectedPosition}&status=${selectedStatus}&search=${searchQuery}`);
+                        if (res.status === 200 && Array.isArray(res.candidates)) {
+                            setCandidates(res.candidates);
+                        } else {
+                            console.error('Failed to fetch filtered candidates');
+                        }
+                    } catch (error) {
+                        console.error('Error fetching filtered candidates:', error);
+                    } finally {
+                        setIsLoading(false);
+                    }
+                };
+                fetchFilteredCandidates();
+            }
         } else if (activeItem === 'Employees') {
             fetchSelectedCandidates();
         } else if (activeItem === 'Attendance') {
             fetchSelectedCandidates();
         }
-    }, [activeItem, isModalOpen]);
+    }, [activeItem, isModalOpen, selectedPosition, searchQuery, selectedStatus]);
+
 
     const fetchCandidates = async () => {
         setIsLoading(true);

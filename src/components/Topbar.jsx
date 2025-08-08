@@ -1,4 +1,3 @@
-import React from 'react';
 import '../css/Topbar.css';
 import { FaEnvelope, FaBell, FaChevronDown } from 'react-icons/fa';
 
@@ -6,7 +5,6 @@ export default function Topbar() {
   return (
     <div className="topbar">
       <h2 className="page-title">Candidates</h2>
-
       <div className="topbar-actions">
         <FaEnvelope className="icon" />
         <FaBell className="icon" />

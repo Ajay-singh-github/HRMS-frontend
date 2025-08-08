@@ -87,16 +87,11 @@ const handleSubmit = async () => {
   return (
     <div className="auth-container">
       <ToastContainer />
-
-      {/* Logo */}
       <div className="authfull-logo">
         <div className="authfull-logo-text"></div>
         <img src={Logo} alt="Logo" className="auth-image" />
       </div>
-
-      {/* Auth Card */}
       <div className="auth-card">
-        {/* Left Section */}
         <div className="auth-left">
           <img src={Dashboard} alt="Dashboard" className="auth-image" />
           <h2 className="auth-heading">
@@ -107,11 +102,8 @@ const handleSubmit = async () => {
             quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
         </div>
-
-        {/* Right Section (Form) */}
         <div className="auth-right">
           <h2 className="auth-title">Welcome to Dashboard</h2>
-
           {!isLogin ? (
             <>
               <input
@@ -153,11 +145,9 @@ const handleSubmit = async () => {
                 onFocus={() => handleChange('confirmPassword', form.confirmPassword)}
               />
               {errors.confirmPassword && <p className="auth-error">{errors.confirmPassword}</p>}
-
               <button className="auth-button" onClick={handleSubmit} disabled={loading}>
                 {loading ? 'Registering...' : 'Register'}
               </button>
-
               <p className="auth-switch">
                 Already have an account?{' '}
                 <span onClick={() => setIsLogin(true)} className="auth-link">Login</span>

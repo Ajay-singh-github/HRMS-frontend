@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import dayjs from 'dayjs';
+import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'; // ⬅️ Imported here
 import '../css/LeaveCalendar.css';
-import leftArrow from '../assets/left.png'; 
-import rightArrow from '../assets/right.png';
 
 const LeaveCalendar = () => {
   const [currentMonth, setCurrentMonth] = useState(dayjs());
@@ -58,17 +57,15 @@ const LeaveCalendar = () => {
       <div className="calendar-header">Leave Calendar</div>
 
       <div className="calendar-nav">
-        <img
-          src={leftArrow}
-          alt="Previous"
+        <FiChevronLeft
           className="nav-icon"
+          size={24}
           onClick={() => handleMonthChange('prev')}
         />
         <span>{currentMonth.format('MMMM, YYYY')}</span>
-        <img
-          src={rightArrow}
-          alt="Next"
+        <FiChevronRight
           className="nav-icon"
+          size={24}
           onClick={() => handleMonthChange('next')}
         />
       </div>

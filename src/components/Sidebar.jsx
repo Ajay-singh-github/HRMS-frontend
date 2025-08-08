@@ -11,14 +11,14 @@ import {
 
 import '../css/Sidebar.css';
 
-export default function Sidebar({activeItem, setActiveItem}) {
+export default function Sidebar({ activeItem, setActiveItem }) {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleSidebar = () => setIsOpen(!isOpen);
 
   const handleItemClick = (itemName) => {
     setActiveItem(itemName);
-    setIsOpen(false);
+    setIsOpen(false); // Close sidebar on mobile
   };
 
   const navItems = [
@@ -43,10 +43,16 @@ export default function Sidebar({activeItem, setActiveItem}) {
   return (
     <>
       <div className="hamburger" onClick={toggleSidebar}>
-        {isOpen ? <FaTimes /> : <FaBars />}
+        {!isOpen && <FaBars />}
       </div>
 
       <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
+        {isOpen && (
+          <div className="close-icon" onClick={toggleSidebar}>
+            <FaTimes />
+          </div>
+        )}
+
         <div className="sidebar-logo">
           <div className="logo-icon" />
           <span className="logo-text">LOGO</span>
@@ -75,7 +81,6 @@ export default function Sidebar({activeItem, setActiveItem}) {
           </div>
         ))}
       </aside>
-
       {isOpen && <div className="overlay" onClick={toggleSidebar}></div>}
     </>
   );

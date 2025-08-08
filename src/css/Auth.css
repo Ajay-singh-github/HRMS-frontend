@@ -10,6 +10,7 @@ body {
   align-items: center;
   padding: 40px 20px;
   min-height: 100vh;
+  padding-right: 20px;
   background-color: #ffffff;
 }
 
@@ -138,6 +139,6 @@ body {
   }
 
   .auth-left, .auth-right {
-    min-width: 100%;
+    min-width: 80%;
   }
 }

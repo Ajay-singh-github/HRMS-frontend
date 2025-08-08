@@ -4,8 +4,6 @@ const BASE_URL='https://developerajay.diy/api'
 function createAxiosClient() {
   return async function (method, endpoint, body, isFormData = false) {
     const url =BASE_URL+ (endpoint ? endpoint : "")
-        
-
     const config = {
       method,
       url,
@@ -15,7 +13,6 @@ function createAxiosClient() {
       withCredentials: true,
       data: body,
     };
-
     try {
       const response = await axios(config);
       return {
@@ -32,5 +29,4 @@ function createAxiosClient() {
     }
   };
 }
-
 export const apiClient = createAxiosClient();

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../css/AddCandidateModal.css';
 import { FiUpload } from 'react-icons/fi';
 import { apiClient } from '../utils/FetchNodeService';
@@ -22,7 +22,6 @@ export default function AddCandidateModal({ setIsModalOpen, selectedEmployeeData
   const [isClosing, setIsClosing] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  // Prefill data if editing employee
   useEffect(() => {
     if (isEmployee && selectedEmployeeData) {
       setFormData({
@@ -31,7 +30,7 @@ export default function AddCandidateModal({ setIsModalOpen, selectedEmployeeData
         phone: selectedEmployeeData.phone || '',
         position: selectedEmployeeData.position || '',
         experience: selectedEmployeeData.experience || '',
-        resume: null, // resume not pre-filled
+        resume: null,
         declaration: true,
         createdAt: selectedEmployeeData.createdAt
           ? new Date(selectedEmployeeData.createdAt).toISOString().split('T')[0]
@@ -39,8 +38,6 @@ export default function AddCandidateModal({ setIsModalOpen, selectedEmployeeData
       });
     }
   }, [isEmployee, selectedEmployeeData]);
-
-  // Validate form
   useEffect(() => {
     const { fullName, email, phone, position, experience, resume, declaration, createdAt } = formData;
 
@@ -51,7 +48,7 @@ export default function AddCandidateModal({ setIsModalOpen, selectedEmployeeData
       position.trim() &&
       experience &&
       (isEmployee ? createdAt.trim() : declaration) &&
-      (!isEmployee ? resume : true); // resume required only for new candidates
+      (!isEmployee ? resume : true);
 
     setIsFormValid(isValid);
   }, [formData, isEmployee]);

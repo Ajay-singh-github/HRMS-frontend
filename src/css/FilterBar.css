@@ -24,7 +24,6 @@
   flex-wrap: wrap;
 }
 
-/* Custom Dropdown */
 .custom-dropdown {
   position: relative;
   font-size: 14px;
@@ -117,7 +116,7 @@
   background: #58117f;
 }
 
-/* 💡 IMPROVED Responsive */
+
 @media (max-width: 1024px) {
   .filter-bar {
     flex-direction: column;

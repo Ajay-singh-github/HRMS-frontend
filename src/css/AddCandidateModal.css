@@ -172,7 +172,12 @@ input[type="date"].styled-date-input {
   width: 100%;
   box-sizing: border-box;
 }
-
+@media (max-width: 768px) {
+  .modal{
+    width: 95%;
+    max-width: 500px;
+  }
+}
 
 /* Animations */
 @keyframes fadeOverlayIn {

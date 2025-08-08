@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Navigate } from 'react-router-dom';
-import { verifyToken } from '../utils/authService.jsx'; // or wherever it's located
+import { verifyToken } from '../utils/authService.jsx';
 
 export default function ProtectedRoute({ children }) {
   const [isLoading, setIsLoading] = useState(true);
