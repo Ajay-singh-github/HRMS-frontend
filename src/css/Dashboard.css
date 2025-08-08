@@ -1,0 +1,36 @@
+/* src/styles/CandidatesPage.css */
+
+.dashboard-container {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  /* background-color: #f9f9f9; */
+  background-color: rgb(255,255,255);
+  font-family: sans-serif;
+}
+
+.dashboard-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dashboard-content {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+}
+
+.leaves-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* Optional: Adjust width if needed */
+.leaves-container > * {
+  flex: 1;
+}
+
+

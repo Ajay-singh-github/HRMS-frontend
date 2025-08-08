@@ -1,0 +1,145 @@
+.table-container {
+  overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  /* padding: 16px; */
+  margin-top: 8px;
+  margin-left: 19%;
+  min-height: 50vh;
+}
+
+.candidates-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.candidates-table th, .candidates-table td {
+  padding: 12px 14px;
+  text-align: left;
+  font-size: 14px;
+  border-bottom: 1px solid #eee;
+  vertical-align: middle;
+}
+
+.candidates-table th {
+  background: #6a0dad;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.status-select {
+  padding: 6px 12px;
+  border-radius: 24px;
+  font-size: 13px;
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+.loading-spinner {
+  text-align: center;
+  padding: 40px 0;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #444;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px 0;
+  color: #888;
+  font-style: italic;
+}
+
+.candidates-table th:first-child {
+  border-top-left-radius: 12px;
+}
+.candidates-table th:last-child {
+  border-top-right-radius: 12px;
+}
+
+.action-cell {
+  position: relative;
+}
+
+.popup-menu {
+  position: absolute;
+  top: 32px;
+  right: 0;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 100;
+  width: 180px;
+  padding: 8px 0;
+}
+
+.popup-item {
+  padding: 10px 16px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.popup-item:hover {
+  background: #f0f0f0;
+}
+
+
+/* Status Colors */
+.status-select.new {
+  color: #000;
+}
+
+.status-select.selected {
+  background-color: #f3e5f5;
+  color: #6a1b9a;
+  border-color: #6a1b9a;
+  font-weight: 500;
+}
+
+.status-select.rejected {
+  background-color: #fbe9e7;
+  color: #d84315;
+  border-color: #d84315;
+  font-weight: 500;
+}
+
+/* Action Button */
+.action-btn {
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px;
+  color: #333;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+.action-btn:hover {
+  background-color: #f2f2f2;
+}
+
+/* Responsive (optional improvement) */
+@media (max-width: 768px) {
+  .candidates-table th,
+  .candidates-table td {
+    font-size: 12px;
+    padding: 10px;
+  }
+.table-container{
+      margin-left: 0px;
+
+}
+  .status-select {
+    font-size: 12px;
+  }
+}
