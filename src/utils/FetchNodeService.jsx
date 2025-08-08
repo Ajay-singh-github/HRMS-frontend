@@ -1,6 +1,6 @@
 import axios from "axios";
 // const BASE_URL = 'http://localhost:5000/api'
-const BASE_URL='http://65.1.27.169:5000/api/candidate'
+const BASE_URL='https://api.developerajay.diy'
 function createAxiosClient() {
   return async function (method, endpoint, body, isFormData = false) {
     const url =BASE_URL+ (endpoint ? endpoint : "")
