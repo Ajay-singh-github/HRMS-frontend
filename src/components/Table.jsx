@@ -162,7 +162,6 @@ export default function CandidatesTable({ activeItem, isModalOpen, setIsModalOpe
         setSelectedEmployeeData(c)
         console.log("Edit employee:", c);
         setIsModalOpen(true);
-        alert("Edit employee functionality is not implemented yet.");
 
     }
 
